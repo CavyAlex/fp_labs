@@ -10,7 +10,7 @@
 (defun pascal-iter(cur last cur-fact)
 	(print-layer 0 cur cur-fact 1 cur-fact)
 	(if (< cur last)
-		(pascal-iter (+ cur 1) last (* cur-fact (+ cur 1)))))
+		(pascal-iter (1+ cur) last (* cur-fact (1+ cur)))))
 
 (defun pascal-triangle(n)	
 	(pascal-iter 0 n 1))
