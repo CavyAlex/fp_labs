@@ -1,0 +1,16 @@
+(defun print-layer(cur n n-fact cur-fact n-cur-fact)
+	(cond ((= cur (1- n)) (prin1 1))
+	((< cur (1- n))
+	(if (= cur 0)
+	(print 1)
+	(prin1 (/ n-fact (* cur-fact n-cur-fact))))
+ 	(princ " ")
+	(print-layer (1+ cur) n n-fact (* cur-fact (1+ cur)) (/ n-cur-fact (- n (1+ cur)))))))
+
+(defun pascal-iter(cur last cur-fact)
+	(print-layer 0 cur cur-fact 1 cur-fact)
+	(if (< cur last)
+		(pascal-iter (+ cur 1) last (* cur-fact (+ cur 1)))))
+
+(defun pascal-triangle(n)	
+	(pascal-iter 0 n 1))
